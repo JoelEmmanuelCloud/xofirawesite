@@ -40,8 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local tooling and skills
-/.claude/skills/
+# claude / local tooling
+/.claude/
+/CLAUDE.md
 
 # preview artifacts
 /preview-*.png
