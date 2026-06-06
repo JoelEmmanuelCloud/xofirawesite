@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Flag } from "@/components/Flag";
-import { PhoneDemo } from "@/components/PhoneDemo";
+import { CorridorMap } from "@/components/CorridorMap";
 import { EmailCapture } from "@/components/EmailCapture";
 import { Partners } from "@/components/Partners";
 
@@ -55,7 +55,7 @@ export function Hero() {
         </div>
 
         <div className="animate-[rise_0.8s_cubic-bezier(0.22,1,0.36,1)_both] [animation-delay:120ms]">
-          <PhoneDemo />
+          <CorridorMap />
         </div>
       </Container>
     </section>
