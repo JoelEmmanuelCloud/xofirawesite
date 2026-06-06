@@ -20,6 +20,10 @@ const AFRICAN_IDS = new Set([
 
 const ISLANDS = new Set(["132", "480", "690", "174"]);
 
+const WEST_FIT_IDS = new Set([
+  "324", "430", "384", "288", "768", "204", "566", "854", "120", "562",
+]);
+
 const topo = JSON.parse(
   readFileSync("node_modules/world-atlas/countries-110m.json", "utf8"),
 );
@@ -29,13 +33,15 @@ const african = fc.features.filter(
   (f) => AFRICAN_IDS.has(String(f.id)) && !ISLANDS.has(String(f.id)),
 );
 
+const fitFeatures = african.filter((f) => WEST_FIT_IDS.has(String(f.id)));
+
 const projection = geoMercator();
 projection.fitExtent(
   [
-    [16, 16],
-    [VB_W - 16, VB_H - 16],
+    [38, 38],
+    [VB_W - 38, VB_H - 38],
   ],
-  { type: "FeatureCollection", features: african },
+  { type: "FeatureCollection", features: fitFeatures },
 );
 
 const pathGen = geoPath(projection);
