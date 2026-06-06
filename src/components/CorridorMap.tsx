@@ -63,11 +63,11 @@ export function CorridorMap({ className }: { className?: string }) {
           </filter>
         </defs>
 
-        <g className="stroke-border" strokeWidth={0.5}>
+        <g className="stroke-background" strokeWidth={0.7}>
           {COUNTRIES.map((c) => {
             const highlight = c.id === NG_ID || c.id === CI_ID;
             if (highlight) return null;
-            return <path key={c.id} d={c.d} className="fill-surface-strong" />;
+            return <path key={c.id} d={c.d} className="fill-ink/15" />;
           })}
         </g>
 
