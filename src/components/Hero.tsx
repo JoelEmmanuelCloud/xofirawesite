@@ -1,10 +1,9 @@
 import { Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Flag } from "@/components/Flag";
 import { CorridorMap } from "@/components/CorridorMap";
 import { EmailCapture } from "@/components/EmailCapture";
 import { Partners } from "@/components/Partners";
-import { AnimatedHeadline } from "@/components/AnimatedHeadline";
+import { TypewriterHeadline } from "@/components/TypewriterHeadline";
 
 export function Hero() {
   return (
@@ -18,18 +17,7 @@ export function Hero() {
 
       <Container className="grid items-center gap-12 pb-16 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pb-24 lg:pt-36">
         <div className="animate-[rise_0.7s_cubic-bezier(0.22,1,0.36,1)_both] max-lg:text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-ink-soft shadow-soft">
-            <span className="flex -space-x-1.5">
-              <Flag country="NG" className="h-4 w-4 ring-2 ring-card" />
-              <Flag country="CI" className="h-4 w-4 ring-2 ring-card" />
-            </span>
-            Now live: Nigeria ↔ Ivory Coast
-          </div>
-
-          <AnimatedHeadline
-            text="Send money across borders, the moment it matters."
-            className="mt-5 text-[2.7rem] font-bold leading-[1.03] tracking-tight text-ink sm:text-[3.4rem]"
-          />
+          <TypewriterHeadline className="text-[2.7rem] font-bold leading-[1.03] tracking-tight text-ink sm:text-[3.4rem]" />
 
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft max-lg:mx-auto">
             Xofira moves money both ways between Nigeria (NGN) and Ivory Coast

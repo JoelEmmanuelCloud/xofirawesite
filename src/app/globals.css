@@ -129,16 +129,14 @@ body {
   }
 }
 
-@keyframes word-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.42em);
-    filter: blur(8px);
-  }
-  to {
+@keyframes caret-blink {
+  0%,
+  50% {
     opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+  }
+  51%,
+  100% {
+    opacity: 0;
   }
 }
 
