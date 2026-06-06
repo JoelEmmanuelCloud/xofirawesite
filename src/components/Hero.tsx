@@ -4,6 +4,7 @@ import { Flag } from "@/components/Flag";
 import { CorridorMap } from "@/components/CorridorMap";
 import { EmailCapture } from "@/components/EmailCapture";
 import { Partners } from "@/components/Partners";
+import { AnimatedHeadline } from "@/components/AnimatedHeadline";
 
 export function Hero() {
   return (
@@ -25,9 +26,10 @@ export function Hero() {
             Now live: Nigeria ↔ Ivory Coast
           </div>
 
-          <h1 className="mt-5 text-[2.7rem] font-bold leading-[1.03] tracking-tight text-ink sm:text-[3.4rem]">
-            Send money across borders, the moment it matters.
-          </h1>
+          <AnimatedHeadline
+            text="Send money across borders, the moment it matters."
+            className="mt-5 text-[2.7rem] font-bold leading-[1.03] tracking-tight text-ink sm:text-[3.4rem]"
+          />
 
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft max-lg:mx-auto">
             Xofira moves money both ways between Nigeria (NGN) and Ivory Coast
