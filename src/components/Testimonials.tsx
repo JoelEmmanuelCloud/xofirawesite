@@ -1,6 +1,7 @@
 import { Quote } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/Reveal";
 import { Flag } from "@/components/Flag";
 
 const REVIEWS = [
@@ -31,31 +32,39 @@ export function Testimonials() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <SectionHeading
-          eyebrow="Loved on both sides"
-          title="Trusted by senders across the corridor"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Loved on both sides"
+            title={
+              <>
+                Trusted by senders{" "}
+                <span className="gradient-text animate-gradient">
+                  across the corridor
+                </span>
+              </>
+            }
+          />
+        </Reveal>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {REVIEWS.map((review) => (
-            <figure
-              key={review.name}
-              className="flex flex-col rounded-2xl border border-border bg-white p-7 shadow-soft"
-            >
-              <Quote className="h-8 w-8 text-brand/30" />
-              <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink-soft">
-                {review.quote}
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                <Flag country={review.country} className="h-10 w-10" />
-                <div>
-                  <div className="text-sm font-bold text-ink">
-                    {review.name}
+          {REVIEWS.map((review, index) => (
+            <Reveal key={review.name} delay={index * 110}>
+              <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-soft transition duration-300 hover:-translate-y-1.5 hover:shadow-lift">
+                <Quote className="h-8 w-8 text-brand/30" />
+                <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink-soft">
+                  {review.quote}
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
+                  <Flag country={review.country} className="h-10 w-10" />
+                  <div>
+                    <div className="text-sm font-bold text-ink">
+                      {review.name}
+                    </div>
+                    <div className="text-xs text-muted">{review.role}</div>
                   </div>
-                  <div className="text-xs text-muted">{review.role}</div>
-                </div>
-              </figcaption>
-            </figure>
+                </figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </Container>

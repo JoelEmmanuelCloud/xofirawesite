@@ -1,6 +1,7 @@
 import { UserPlus, Calculator, Send, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/Reveal";
 
 const STEPS = [
   {
@@ -29,29 +30,39 @@ export function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-surface py-20 sm:py-28">
       <Container>
-        <SectionHeading
-          eyebrow="How it works"
-          title="From Lagos to Abidjan in four simple steps"
-          description="Whether you are sending naira to Ivory Coast or CFA francs back to Nigeria, the flow is the same."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="How it works"
+            title={
+              <>
+                From Lagos to Abidjan in{" "}
+                <span className="gradient-text animate-gradient">four steps</span>
+              </>
+            }
+            description="Whether you are sending naira to Ivory Coast or CFA francs back to Nigeria, the flow is the same."
+          />
+        </Reveal>
 
         <ol className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step, index) => (
-            <li
-              key={step.title}
-              className="group relative rounded-2xl border border-border bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="absolute right-5 top-5 tabular text-5xl font-bold text-surface-strong transition group-hover:text-brand-soft">
-                {index + 1}
-              </span>
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-soft text-brand">
-                <step.icon className="h-6 w-6" strokeWidth={1.75} />
-              </span>
-              <h3 className="mt-5 text-lg font-bold text-ink">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                {step.body}
-              </p>
-            </li>
+            <Reveal as="li" key={step.title} delay={index * 90}>
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft transition duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-lift">
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand to-transparent opacity-0 transition group-hover:opacity-100"
+                />
+                <span className="absolute right-5 top-4 text-5xl font-bold text-surface-strong transition group-hover:text-brand-soft">
+                  {index + 1}
+                </span>
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-soft text-brand transition group-hover:scale-110">
+                  <step.icon className="h-6 w-6" strokeWidth={1.75} />
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-ink">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                  {step.body}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </ol>
       </Container>

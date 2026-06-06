@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/TrustBar";
+import { CalculatorSection } from "@/components/CalculatorSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Features } from "@/components/Features";
 import { Coverage } from "@/components/Coverage";
@@ -33,6 +34,7 @@ export default function HomePage() {
       <main className="flex-1">
         <Hero />
         <TrustBar />
+        <CalculatorSection />
         <HowItWorks />
         <Features />
         <Coverage />

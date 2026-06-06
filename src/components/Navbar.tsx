@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -35,53 +36,59 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-border bg-white/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
-      )}
-    >
-      <Container>
-        <nav className="flex h-16 items-center justify-between gap-4">
-          <Logo />
+    <header className="sticky top-0 z-50">
+      <div
+        className={cn(
+          "transition-all duration-300",
+          scrolled
+            ? "glass border-b border-border shadow-soft"
+            : "border-b border-transparent",
+        )}
+      >
+        <Container>
+          <nav className="flex h-16 items-center justify-between gap-4">
+            <Logo />
 
-          <div className="hidden items-center gap-1 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition hover:bg-surface hover:text-brand"
+            <div className="hidden items-center gap-1 lg:flex">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition hover:bg-brand-soft hover:text-brand"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="hidden items-center gap-2 lg:flex">
+              <ThemeToggle />
+              <Button href="#" variant="ghost" size="sm">
+                Log in
+              </Button>
+              <Button href="#get-started" size="sm">
+                Get started
+              </Button>
+            </div>
+
+            <div className="flex items-center gap-2 lg:hidden">
+              <ThemeToggle />
+              <button
+                type="button"
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+                onClick={() => setOpen((v) => !v)}
+                className="flex h-10 w-10 items-center justify-center rounded-full text-ink ring-1 ring-border transition hover:bg-surface cursor-pointer"
               >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="hidden items-center gap-2 lg:flex">
-            <Button href="#" variant="ghost" size="sm">
-              Log in
-            </Button>
-            <Button href="#get-started" size="sm">
-              Get started
-            </Button>
-          </div>
-
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition hover:bg-surface lg:hidden cursor-pointer"
-          >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </nav>
-      </Container>
+                {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
+          </nav>
+        </Container>
+      </div>
 
       {open ? (
-        <div className="border-t border-border bg-white lg:hidden">
+        <div className="glass border-b border-border lg:hidden">
           <Container className="py-4">
             <div className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
@@ -89,7 +96,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-ink-soft transition hover:bg-surface hover:text-brand"
+                  className="rounded-xl px-4 py-3 text-base font-medium text-ink-soft transition hover:bg-brand-soft hover:text-brand"
                 >
                   {link.label}
                 </Link>

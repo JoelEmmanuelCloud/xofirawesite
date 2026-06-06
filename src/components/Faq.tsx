@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
 
 const FAQS = [
@@ -39,13 +40,20 @@ export function Faq() {
   return (
     <section id="faq" className="bg-surface py-20 sm:py-28">
       <Container className="max-w-3xl">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Questions, answered"
-          description="Everything you need to know before your first transfer."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="FAQ"
+            title={
+              <>
+                Questions,{" "}
+                <span className="gradient-text animate-gradient">answered</span>
+              </>
+            }
+            description="Everything you need to know before your first transfer."
+          />
+        </Reveal>
 
-        <div className="mt-12 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-white">
+        <div className="mt-12 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
           {FAQS.map((item, index) => {
             const isOpen = open === index;
             return (

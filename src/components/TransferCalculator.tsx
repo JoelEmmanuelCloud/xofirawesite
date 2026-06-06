@@ -73,7 +73,7 @@ export function TransferCalculator({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "w-full rounded-2xl bg-white p-5 shadow-lift ring-1 ring-border sm:p-6",
+        "w-full rounded-2xl bg-card p-5 shadow-lift ring-1 ring-border sm:p-6",
         className,
       )}
     >
@@ -103,7 +103,7 @@ export function TransferCalculator({ className }: { className?: string }) {
             type="button"
             onClick={swap}
             aria-label="Swap currencies"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-brand text-white shadow-glow ring-4 ring-white transition hover:bg-brand-hover active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/40 cursor-pointer"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-brand text-white shadow-glow ring-4 ring-card transition hover:bg-brand-hover hover:rotate-180 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/40 cursor-pointer"
           >
             <ArrowDownUp className="h-5 w-5" strokeWidth={2.25} />
           </button>
@@ -187,7 +187,7 @@ function FieldBlock({
     <label
       htmlFor={inputId}
       className={cn(
-        "flex items-center gap-3 rounded-xl border bg-white px-4 py-3 transition focus-within:border-brand focus-within:ring-4 focus-within:ring-brand/10",
+        "flex items-center gap-3 rounded-xl border bg-card px-4 py-3 transition focus-within:border-brand focus-within:ring-4 focus-within:ring-brand/10",
         invalid ? "border-danger" : "border-border",
       )}
     >

@@ -40,7 +40,7 @@ export function Footer() {
       <Container className="py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-xs">
-            <Logo variant="lockup" onDark href="/" />
+            <Logo onDark href="/" />
             <p className="mt-4 text-sm leading-relaxed text-white/60">
               A next-generation fintech platform for seamless money transfers
               between Nigeria and West Africa.

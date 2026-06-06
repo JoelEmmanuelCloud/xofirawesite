@@ -3,48 +3,34 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
-  variant?: "full" | "lockup";
   onDark?: boolean;
   className?: string;
   href?: string;
 }
 
-export function Logo({
-  variant = "full",
-  onDark = false,
-  className,
-  href = "/",
-}: LogoProps) {
-  const content =
-    variant === "full" && !onDark ? (
+function Lockup({ light }: { light?: boolean }) {
+  return (
+    <span className="flex items-center gap-2.5">
       <Image
-        src="/xofira-logo.png"
-        alt="Xofira"
-        width={650}
-        height={188}
-        priority
-        className="h-9 w-auto"
+        src="/xofira-mark.png"
+        alt=""
+        width={228}
+        height={228}
+        className="h-9 w-9"
       />
-    ) : (
-      <span className="flex items-center gap-2.5">
-        <Image
-          src="/xofira-mark.png"
-          alt=""
-          width={228}
-          height={228}
-          className="h-9 w-9"
-        />
-        <span
-          className={cn(
-            "text-2xl font-bold tracking-tight",
-            onDark ? "text-white" : "text-brand-ink",
-          )}
-        >
-          Xofira
-        </span>
+      <span
+        className={cn(
+          "text-2xl font-bold tracking-tight",
+          light ? "text-white" : "text-brand-ink",
+        )}
+      >
+        Xofira
       </span>
-    );
+    </span>
+  );
+}
 
+export function Logo({ onDark = false, className, href = "/" }: LogoProps) {
   return (
     <Link
       href={href}
@@ -54,7 +40,23 @@ export function Logo({
         className,
       )}
     >
-      {content}
+      {onDark ? (
+        <Lockup light />
+      ) : (
+        <>
+          <Image
+            src="/xofira-logo.png"
+            alt="Xofira"
+            width={650}
+            height={188}
+            priority
+            className="h-9 w-auto dark:hidden"
+          />
+          <span className="hidden dark:flex">
+            <Lockup light />
+          </span>
+        </>
+      )}
     </Link>
   );
 }
