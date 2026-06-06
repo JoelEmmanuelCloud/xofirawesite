@@ -6,7 +6,7 @@ import { PhoneDemo } from "@/components/PhoneDemo";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative -mt-16 overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 grid-bg mask-fade-y opacity-70" />
         <div className="absolute -left-40 -top-40 h-[34rem] w-[34rem] animate-blob rounded-full bg-brand/20 blur-3xl" />
@@ -14,7 +14,7 @@ export function Hero() {
         <div className="absolute bottom-[-16rem] left-1/3 h-[28rem] w-[28rem] animate-blob rounded-full bg-gold/15 blur-3xl [animation-delay:8s]" />
       </div>
 
-      <Container className="grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-24">
+      <Container className="grid items-center gap-12 pb-16 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pb-24 lg:pt-36">
         <div className="animate-[rise_0.7s_cubic-bezier(0.22,1,0.36,1)_both] max-lg:text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-ink-soft shadow-soft">
             <span className="flex -space-x-1.5">
