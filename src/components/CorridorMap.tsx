@@ -136,7 +136,7 @@ export function CorridorMap({ className }: { className?: string }) {
           <Glow point={t.to} delay={620} />
           <div
             className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap"
-            style={pct((t.from[0] + t.to[0]) / 2, Math.min(t.from[1], t.to[1]) - 56)}
+            style={pct(t.from[0], t.from[1] - 28)}
           >
             <div
               className="flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-semibold text-ink shadow-lift"
