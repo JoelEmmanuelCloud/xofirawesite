@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
+import { AppShowcase } from "@/components/AppShowcase";
 import { CalculatorSection } from "@/components/CalculatorSection";
 import { WhyXofira } from "@/components/WhyXofira";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -33,6 +34,7 @@ export default function HomePage() {
       <main className="flex-1">
         <Hero />
         <Features />
+        <AppShowcase />
         <CalculatorSection />
         <WhyXofira />
         <HowItWorks />

@@ -10,7 +10,7 @@ const STEP_COUNT = 4;
 const STEP_MS = 2600;
 
 const W = 300;
-const H = 520;
+const H = 600;
 const D = 22;
 
 function Edge({
@@ -34,7 +34,13 @@ function Edge({
   );
 }
 
-export function PhoneDemo({ className }: { className?: string }) {
+export function PhoneDemo({
+  className,
+  spin = false,
+}: {
+  className?: string;
+  spin?: boolean;
+}) {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -71,7 +77,10 @@ export function PhoneDemo({ className }: { className?: string }) {
 
       <div className="animate-float-slow [transform-style:preserve-3d]">
         <div
-          className="phone-spin relative mx-auto"
+          className={cn(
+            "relative mx-auto [transform-style:preserve-3d]",
+            spin ? "phone-spin" : "[transform:rotateY(-18deg)_rotateX(3deg)]",
+          )}
           style={{ width: W, height: H }}
         >
           <Edge
