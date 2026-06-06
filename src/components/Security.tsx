@@ -59,7 +59,7 @@ export function Security() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((pillar, index) => (
             <Reveal key={pillar.title} delay={index * 90}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition hover:-translate-y-1.5 hover:border-white/25 hover:bg-white/10">
+              <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1.5 hover:border-white/25 hover:bg-white/10">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-gold ring-1 ring-white/10">
                   <pillar.icon className="h-6 w-6" strokeWidth={1.75} />
                 </span>

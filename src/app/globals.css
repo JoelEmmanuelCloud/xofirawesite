@@ -70,10 +70,6 @@
   --c-green-soft: #e4f7ec;
   --c-gold-soft: #fef2dd;
 
-  --glass-bg: rgba(255, 255, 255, 0.62);
-  --glass-border: rgba(255, 255, 255, 0.75);
-  --glass-highlight: rgba(255, 255, 255, 0.9);
-
   --grid-line: rgba(10, 22, 38, 0.045);
   --sh-soft: 0 1px 2px rgba(10, 22, 38, 0.04), 0 10px 30px -12px rgba(10, 22, 38, 0.12);
   --sh-lift: 0 30px 70px -28px rgba(10, 22, 38, 0.32);
@@ -96,10 +92,6 @@
   --c-brand-ink: #9cc4ff;
   --c-green-soft: #0e2a1c;
   --c-gold-soft: #2c2410;
-
-  --glass-bg: rgba(15, 26, 45, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-highlight: rgba(255, 255, 255, 0.16);
 
   --grid-line: rgba(255, 255, 255, 0.05);
   --sh-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 34px -14px rgba(0, 0, 0, 0.7);
@@ -244,13 +236,6 @@ body {
   to {
     stroke-dashoffset: 0;
   }
-}
-
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid var(--glass-border);
 }
 
 .gradient-text {

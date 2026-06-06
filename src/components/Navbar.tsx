@@ -41,7 +41,7 @@ export function Navbar() {
         className={cn(
           "transition-all duration-300",
           scrolled
-            ? "glass border-b border-border shadow-soft"
+            ? "bg-background border-b border-border shadow-soft"
             : "border-b border-transparent",
         )}
       >
@@ -88,7 +88,7 @@ export function Navbar() {
       </div>
 
       {open ? (
-        <div className="glass border-b border-border lg:hidden">
+        <div className="bg-background border-b border-border lg:hidden">
           <Container className="py-4">
             <div className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (

@@ -16,7 +16,7 @@ export function Hero() {
 
       <Container className="grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-24">
         <div className="animate-[rise_0.7s_cubic-bezier(0.22,1,0.36,1)_both] max-lg:text-center">
-          <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs font-semibold text-ink-soft shadow-soft">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-ink-soft shadow-soft">
             <span className="flex -space-x-1.5">
               <Flag country="NG" className="h-5 w-5 ring-2 ring-card" />
               <Flag country="CI" className="h-5 w-5 ring-2 ring-card" />

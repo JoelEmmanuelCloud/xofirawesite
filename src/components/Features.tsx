@@ -44,7 +44,7 @@ export function Features() {
                 aria-hidden
                 className="absolute -bottom-12 -left-8 h-48 w-48 rounded-full bg-green/30 blur-3xl"
               />
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 backdrop-blur">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
                 <RefreshCw className="h-6 w-6" strokeWidth={1.75} />
               </span>
               <h3 className="mt-6 text-2xl font-bold">Truly bidirectional</h3>
@@ -54,7 +54,7 @@ export function Features() {
               </p>
 
               <div className="mt-auto pt-8">
-                <div className="flex items-center justify-between rounded-2xl bg-white/10 p-4 backdrop-blur">
+                <div className="flex items-center justify-between rounded-2xl bg-white/10 p-4">
                   <div className="flex items-center gap-2.5">
                     <Flag country="NG" className="h-9 w-9 ring-2 ring-white/30" />
                     <span className="text-sm font-semibold">Nigeria</span>

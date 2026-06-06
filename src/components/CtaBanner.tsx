@@ -24,7 +24,7 @@ export function CtaBanner() {
             </div>
 
             <div className="relative">
-              <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-semibold text-white ring-1 ring-white/20 backdrop-blur">
+              <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-semibold text-white ring-1 ring-white/20">
                 <span className="flex -space-x-1.5">
                   <Flag country="NG" className="h-5 w-5 ring-2 ring-white/40" />
                   <Flag country="CI" className="h-5 w-5 ring-2 ring-white/40" />
@@ -50,7 +50,7 @@ export function CtaBanner() {
                     href="#"
                     variant="secondary"
                     size="lg"
-                    className="border-0 bg-white/10 text-white ring-1 ring-white/30 backdrop-blur hover:bg-white/20"
+                    className="border-0 bg-white/10 text-white ring-1 ring-white/30 hover:bg-white/20"
                   >
                     <Apple className="h-5 w-5" /> iOS
                   </Button>
@@ -58,7 +58,7 @@ export function CtaBanner() {
                     href="#"
                     variant="secondary"
                     size="lg"
-                    className="border-0 bg-white/10 text-white ring-1 ring-white/30 backdrop-blur hover:bg-white/20"
+                    className="border-0 bg-white/10 text-white ring-1 ring-white/30 hover:bg-white/20"
                   >
                     <Smartphone className="h-5 w-5" /> Android
                   </Button>
