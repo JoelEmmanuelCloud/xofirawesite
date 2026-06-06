@@ -1,26 +1,22 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { feature } from "topojson-client";
-import { geoMercator, geoPath } from "d3-geo";
+import { geoMercator, geoPath, geoBounds, geoContains } from "d3-geo";
+
+function mulberry32(seed) {
+  return function () {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 const VB_W = 480;
 const VB_H = 540;
 const NG_ID = "566";
 const CI_ID = "384";
-const NG_CITY_DEFS = [
-  { name: "Lagos", lng: 3.3792, lat: 6.5244, hub: true },
-  { name: "Abuja", lng: 7.4898, lat: 9.0765 },
-  { name: "Kano", lng: 8.592, lat: 12.0022 },
-  { name: "Port Harcourt", lng: 7.0498, lat: 4.8242 },
-  { name: "Ibadan", lng: 3.947, lat: 7.3776 },
-];
-
-const CI_CITY_DEFS = [
-  { name: "Abidjan", lng: -4.0083, lat: 5.3599, hub: true },
-  { name: "Yamoussoukro", lng: -5.2767, lat: 6.8276 },
-  { name: "Bouaké", lng: -5.03, lat: 7.69 },
-  { name: "San-Pédro", lng: -6.6363, lat: 4.7485 },
-  { name: "Korhogo", lng: -5.6294, lat: 9.458 },
-];
+const POINTS_PER_COUNTRY = 40;
 
 const AFRICAN_IDS = new Set([
   "012", "024", "204", "072", "854", "108", "120", "140", "148", "178",
@@ -65,20 +61,35 @@ const countries = african
   }))
   .filter((c) => c.d.length > 0);
 
-function projectCities(defs) {
-  return defs.map((c) => {
-    const [x, y] = projection([c.lng, c.lat]);
-    return {
-      name: c.name,
-      hub: Boolean(c.hub),
-      x: Number(x.toFixed(1)),
-      y: Number(y.toFixed(1)),
-    };
-  });
+function randomPoints(feat, n, seed) {
+  const rng = mulberry32(seed);
+  const [[w, s], [e, nth]] = geoBounds(feat);
+  const points = [];
+  let guard = 0;
+  while (points.length < n && guard < n * 400) {
+    guard += 1;
+    const lng = w + rng() * (e - w);
+    const lat = s + rng() * (nth - s);
+    if (!geoContains(feat, [lng, lat])) continue;
+    const [x, y] = projection([lng, lat]);
+    points.push([Number(x.toFixed(1)), Number(y.toFixed(1))]);
+  }
+  return points;
 }
 
-const ngCities = projectCities(NG_CITY_DEFS);
-const ciCities = projectCities(CI_CITY_DEFS);
+function labelAnchor(feat) {
+  const [[x0, y0], [x1, y1]] = pathGen.bounds(feat);
+  void y0;
+  return { x: Number(((x0 + x1) / 2).toFixed(1)), y: Number(y1.toFixed(1)) };
+}
+
+const ngFeature = african.find((f) => String(f.id) === NG_ID);
+const ciFeature = african.find((f) => String(f.id) === CI_ID);
+
+const ngPoints = randomPoints(ngFeature, POINTS_PER_COUNTRY, 7);
+const ciPoints = randomPoints(ciFeature, POINTS_PER_COUNTRY, 21);
+const ngLabel = labelAnchor(ngFeature);
+const ciLabel = labelAnchor(ciFeature);
 
 const out = `export const VB_W = ${VB_W};
 export const VB_H = ${VB_H};
@@ -91,15 +102,12 @@ export interface Country {
   d: string;
 }
 
-export interface City {
-  name: string;
-  hub: boolean;
-  x: number;
-  y: number;
-}
+export type Point = [number, number];
 
-export const NG_CITIES: City[] = ${JSON.stringify(ngCities)};
-export const CI_CITIES: City[] = ${JSON.stringify(ciCities)};
+export const NG_POINTS: Point[] = ${JSON.stringify(ngPoints)};
+export const CI_POINTS: Point[] = ${JSON.stringify(ciPoints)};
+export const NG_LABEL = ${JSON.stringify(ngLabel)};
+export const CI_LABEL = ${JSON.stringify(ciLabel)};
 
 export const COUNTRIES: Country[] = ${JSON.stringify(countries)};
 `;
@@ -108,5 +116,5 @@ mkdirSync("src/lib", { recursive: true });
 writeFileSync("src/lib/mapPaths.ts", out);
 
 console.log(
-  `Generated ${countries.length} countries, ${ngCities.length} NG cities, ${ciCities.length} CI cities.`,
+  `Generated ${countries.length} countries, ${ngPoints.length} NG points, ${ciPoints.length} CI points.`,
 );
