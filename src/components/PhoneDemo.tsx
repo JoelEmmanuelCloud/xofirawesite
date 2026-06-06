@@ -9,6 +9,31 @@ import { cn } from "@/lib/utils";
 const STEP_COUNT = 4;
 const STEP_MS = 2600;
 
+const W = 300;
+const H = 620;
+const D = 22;
+
+function Edge({
+  style,
+  vertical,
+}: {
+  style: React.CSSProperties;
+  vertical?: boolean;
+}) {
+  return (
+    <div
+      aria-hidden
+      className="absolute left-1/2 top-1/2 rounded-[8px]"
+      style={{
+        ...style,
+        background: vertical
+          ? "linear-gradient(90deg,#0b1220,#41506b 50%,#0b1220)"
+          : "linear-gradient(180deg,#0b1220,#41506b 50%,#0b1220)",
+      }}
+    />
+  );
+}
+
 export function PhoneDemo({ className }: { className?: string }) {
   const [step, setStep] = useState(0);
 
@@ -39,12 +64,38 @@ export function PhoneDemo({ className }: { className?: string }) {
         className="absolute -left-8 bottom-12 -z-10 h-40 w-40 animate-blob rounded-full bg-gold/40 blur-3xl [animation-delay:3s]"
       />
 
+      <div
+        aria-hidden
+        className="absolute -bottom-2 left-1/2 -z-10 h-12 w-60 -translate-x-1/2 rounded-[50%] bg-black/30 blur-2xl dark:bg-black/50"
+      />
+
       <div className="animate-float-slow [transform-style:preserve-3d]">
-        <div className="phone-spin relative mx-auto w-[300px]">
-          <div className="phone-face relative rounded-[2.8rem] border border-white/15 bg-gradient-to-b from-slate-800 to-slate-950 p-2.5 shadow-[0_50px_90px_-30px_rgba(0,0,0,0.65)] ring-1 ring-black/40">
+        <div
+          className="phone-spin relative mx-auto"
+          style={{ width: W, height: H }}
+        >
+          <Edge
+            vertical
+            style={{ width: D, height: H - 56, marginLeft: -D / 2, marginTop: -(H - 56) / 2, transform: `rotateY(90deg) translateZ(${W / 2}px)` }}
+          />
+          <Edge
+            vertical
+            style={{ width: D, height: H - 56, marginLeft: -D / 2, marginTop: -(H - 56) / 2, transform: `rotateY(-90deg) translateZ(${W / 2}px)` }}
+          />
+          <Edge
+            style={{ width: W - 56, height: D, marginLeft: -(W - 56) / 2, marginTop: -D / 2, transform: `rotateX(90deg) translateZ(${H / 2}px)` }}
+          />
+          <Edge
+            style={{ width: W - 56, height: D, marginLeft: -(W - 56) / 2, marginTop: -D / 2, transform: `rotateX(-90deg) translateZ(${H / 2}px)` }}
+          />
+
+          <div
+            className="phone-face absolute left-1/2 top-1/2 rounded-[2.8rem] border border-white/15 bg-gradient-to-b from-slate-800 to-slate-950 p-2.5 shadow-[0_50px_90px_-30px_rgba(0,0,0,0.65)] ring-1 ring-black/40"
+            style={{ width: W, height: H, marginLeft: -W / 2, marginTop: -H / 2, transform: `translateZ(${D / 2}px)` }}
+          >
             <div className="absolute left-1/2 top-3.5 z-20 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
 
-            <div className="relative h-[600px] overflow-hidden rounded-[2.2rem] bg-gradient-to-b from-white via-white to-[#eef4ff]">
+            <div className="relative h-full overflow-hidden rounded-[2.2rem] bg-gradient-to-b from-white via-white to-[#eef4ff]">
               <ScreenChrome />
 
               <div className="relative h-[calc(100%-3.25rem)]">
@@ -85,8 +136,11 @@ export function PhoneDemo({ className }: { className?: string }) {
 
 function PhoneBack() {
   return (
-    <div className="phone-face absolute inset-0 [transform:rotateY(180deg)]">
-      <div className="relative h-full overflow-hidden rounded-[2.8rem] border border-white/10 bg-gradient-to-br from-[#1a2742] via-[#0c1627] to-[#060c18] shadow-[0_50px_90px_-30px_rgba(0,0,0,0.65)] ring-1 ring-black/40">
+    <div
+      className="phone-face absolute left-1/2 top-1/2 overflow-hidden rounded-[2.8rem] border border-white/10 bg-gradient-to-br from-[#1a2742] via-[#0c1627] to-[#060c18] shadow-[0_50px_90px_-30px_rgba(0,0,0,0.65)] ring-1 ring-black/40"
+      style={{ width: W, height: H, marginLeft: -W / 2, marginTop: -H / 2, transform: `rotateY(180deg) translateZ(${D / 2}px)` }}
+    >
+      <div className="relative h-full">
         <div
           aria-hidden
           className="absolute inset-0 bg-[linear-gradient(115deg,transparent_30%,rgba(255,255,255,0.08)_45%,transparent_60%)]"
