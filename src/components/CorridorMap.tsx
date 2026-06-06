@@ -154,8 +154,8 @@ export function CorridorMap({ className }: { className?: string }) {
         </div>
       ))}
 
-      <CityTag country="CI" name="Ivory Coast" point={CI_LABEL} />
-      <CityTag country="NG" name="Nigeria" point={NG_LABEL} />
+      <CityTag country="CI" name="Ivory Coast" point={CI_LABEL} side="left" />
+      <CityTag country="NG" name="Nigeria" point={NG_LABEL} side="right" />
     </div>
   );
 }
@@ -181,14 +181,19 @@ function CityTag({
   country,
   name,
   point,
+  side,
 }: {
   country: "NG" | "CI";
   name: string;
   point: { x: number; y: number };
+  side: "left" | "right";
 }) {
   return (
     <div
-      className="absolute flex -translate-x-1/2 translate-y-2 items-center gap-2 rounded-xl border border-border bg-card px-2.5 py-1.5 shadow-soft"
+      className={cn(
+        "absolute flex translate-y-3 items-center gap-2 rounded-xl border border-border bg-card px-2.5 py-1.5 shadow-soft",
+        side === "left" ? "-translate-x-[88%]" : "-translate-x-[12%]",
+      )}
       style={{ left: `${(point.x / VB_W) * 100}%`, top: `${(point.y / VB_H) * 100}%` }}
     >
       <Flag country={country} className="h-6 w-6" />
