@@ -10,7 +10,7 @@ const STEP_COUNT = 4;
 const STEP_MS = 2600;
 
 const W = 300;
-const H = 620;
+const H = 560;
 const D = 22;
 
 function Edge({
