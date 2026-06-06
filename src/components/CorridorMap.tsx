@@ -20,11 +20,14 @@ const CTRL = {
 };
 const ARC = `M ${ABIDJAN.x} ${ABIDJAN.y} Q ${CTRL.x} ${CTRL.y} ${LAGOS.x} ${LAGOS.y}`;
 
-const CHIPS = [
-  { label: "₦100,000", to: "CFA 35,646", x: CTRL.x, y: CTRL.y - 6, delay: 0 },
-  { label: "CFA 50,000", to: "₦139,200", x: ABIDJAN.x - 16, y: CTRL.y + 52, delay: 1800 },
-  { label: "₦250,000", to: "CFA 89,100", x: LAGOS.x + 16, y: CTRL.y + 52, delay: 3400 },
+const TRANSACTIONS = [
+  { label: "₦100,000", to: "CFA 35,646" },
+  { label: "CFA 50,000", to: "₦139,200" },
+  { label: "₦250,000", to: "CFA 89,100" },
+  { label: "CFA 120,000", to: "₦334,080" },
 ];
+
+const CHIP = { x: CTRL.x, y: CTRL.y - 14 };
 
 function pct(x: number, y: number) {
   return { left: `${(x / VB_W) * 100}%`, top: `${(y / VB_H) * 100}%` };
@@ -32,6 +35,7 @@ function pct(x: number, y: number) {
 
 export function CorridorMap({ className }: { className?: string }) {
   const [animate, setAnimate] = useState(false);
+  const [tx, setTx] = useState(0);
 
   useEffect(() => {
     const id = requestAnimationFrame(() =>
@@ -39,6 +43,17 @@ export function CorridorMap({ className }: { className?: string }) {
     );
     return () => cancelAnimationFrame(id);
   }, []);
+
+  useEffect(() => {
+    if (!animate) return;
+    const id = setInterval(
+      () => setTx((t) => (t + 1) % TRANSACTIONS.length),
+      2200,
+    );
+    return () => clearInterval(id);
+  }, [animate]);
+
+  const active = TRANSACTIONS[animate ? tx : 0];
 
   return (
     <div className={cn("relative mx-auto aspect-[480/540] w-full max-w-xl", className)}>
@@ -138,26 +153,20 @@ export function CorridorMap({ className }: { className?: string }) {
       <CityTag country="CI" name="Ivory Coast" city="Abidjan" point={ABIDJAN} side="left" />
       <CityTag country="NG" name="Nigeria" city="Lagos" point={LAGOS} side="right" />
 
-      {CHIPS.map((chip) => (
+      <div
+        className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap"
+        style={pct(CHIP.x, CHIP.y)}
+      >
         <div
-          key={chip.label}
-          className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap"
-          style={pct(chip.x, chip.y)}
+          key={animate ? tx : "static"}
+          className="flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-semibold text-ink shadow-lift"
+          style={animate ? { animation: "chip-in 0.5s ease-out both" } : undefined}
         >
-          <div
-            className="flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-semibold text-ink shadow-lift"
-            style={
-              animate
-                ? { animation: `chip-cycle 5.4s ease-in-out ${chip.delay}ms infinite` }
-                : undefined
-            }
-          >
-            <span className="tabular">{chip.label}</span>
-            <ArrowRight className="h-3 w-3 text-green" />
-            <span className="tabular text-green">{chip.to}</span>
-          </div>
+          <span className="tabular">{active.label}</span>
+          <ArrowRight className="h-3 w-3 text-green" />
+          <span className="tabular text-green">{active.to}</span>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
