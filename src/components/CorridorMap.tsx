@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Flag } from "@/components/Flag";
 import { cn } from "@/lib/utils";
 import {
@@ -19,26 +19,22 @@ import {
 
 const ORANGE = "#ff9a3c";
 
-const AMOUNTS = {
-  ngToCi: [
-    { label: "₦100,000", to: "CFA 35,646" },
-    { label: "₦50,000", to: "CFA 17,823" },
-    { label: "₦250,000", to: "CFA 89,100" },
-    { label: "₦20,000", to: "CFA 7,129" },
-  ],
-  ciToNg: [
-    { label: "CFA 50,000", to: "₦139,200" },
-    { label: "CFA 120,000", to: "₦334,080" },
-    { label: "CFA 25,000", to: "₦69,600" },
-    { label: "CFA 75,000", to: "₦208,800" },
-  ],
-};
+const PAIRS = [
+  { ng: "₦100,000", ci: "CFA 35,646" },
+  { ng: "₦50,000", ci: "CFA 17,823" },
+  { ng: "₦250,000", ci: "CFA 89,100" },
+  { ng: "₦139,200", ci: "CFA 50,000" },
+  { ng: "₦334,080", ci: "CFA 120,000" },
+  { ng: "₦69,600", ci: "CFA 25,000" },
+];
 
 interface Tx {
   id: number;
   from: Point;
   to: Point;
-  amount: { label: string; to: string };
+  ngToCi: boolean;
+  ng: string;
+  ci: string;
   born: number;
 }
 
@@ -71,12 +67,12 @@ export function CorridorMap({ className }: { className?: string }) {
       const ngToCi = Math.random() < 0.5;
       const from = pick(ngToCi ? NG_POINTS : CI_POINTS);
       const to = pick(ngToCi ? CI_POINTS : NG_POINTS);
-      const amount = pick(ngToCi ? AMOUNTS.ngToCi : AMOUNTS.ciToNg);
+      const pair = pick(PAIRS);
       const id = nextId.current++;
       const now = Date.now();
       setTxs((prev) => [
         ...prev.filter((t) => now - t.born < LIFE),
-        { id, from, to, amount, born: now },
+        { id, from, to, ngToCi, ng: pair.ng, ci: pair.ci, born: now },
       ]);
       timer = setTimeout(tick, 650 + Math.random() * 850);
     };
@@ -146,9 +142,13 @@ export function CorridorMap({ className }: { className?: string }) {
               className="flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-semibold text-ink shadow-lift"
               style={{ animation: "tx-card 2.4s ease-out both" }}
             >
-              <span className="tabular">{t.amount.label}</span>
-              <ArrowRight className="h-3 w-3" style={{ color: ORANGE }} />
-              <span className="tabular text-ink-soft">{t.amount.to}</span>
+              <span className="tabular">{t.ci}</span>
+              {t.ngToCi ? (
+                <ArrowLeft className="h-3 w-3" style={{ color: ORANGE }} />
+              ) : (
+                <ArrowRight className="h-3 w-3" style={{ color: ORANGE }} />
+              )}
+              <span className="tabular">{t.ng}</span>
             </div>
           </div>
         </div>
