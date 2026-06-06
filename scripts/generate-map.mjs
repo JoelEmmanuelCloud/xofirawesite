@@ -6,8 +6,21 @@ const VB_W = 480;
 const VB_H = 540;
 const NG_ID = "566";
 const CI_ID = "384";
-const LAGOS = [3.3792, 6.5244];
-const ABIDJAN = [-4.0083, 5.3599];
+const NG_CITY_DEFS = [
+  { name: "Lagos", lng: 3.3792, lat: 6.5244, hub: true },
+  { name: "Abuja", lng: 7.4898, lat: 9.0765 },
+  { name: "Kano", lng: 8.592, lat: 12.0022 },
+  { name: "Port Harcourt", lng: 7.0498, lat: 4.8242 },
+  { name: "Ibadan", lng: 3.947, lat: 7.3776 },
+];
+
+const CI_CITY_DEFS = [
+  { name: "Abidjan", lng: -4.0083, lat: 5.3599, hub: true },
+  { name: "Yamoussoukro", lng: -5.2767, lat: 6.8276 },
+  { name: "Bouaké", lng: -5.03, lat: 7.69 },
+  { name: "San-Pédro", lng: -6.6363, lat: 4.7485 },
+  { name: "Korhogo", lng: -5.6294, lat: 9.458 },
+];
 
 const AFRICAN_IDS = new Set([
   "012", "024", "204", "072", "854", "108", "120", "140", "148", "178",
@@ -52,8 +65,20 @@ const countries = african
   }))
   .filter((c) => c.d.length > 0);
 
-const lagos = projection(LAGOS);
-const abidjan = projection(ABIDJAN);
+function projectCities(defs) {
+  return defs.map((c) => {
+    const [x, y] = projection([c.lng, c.lat]);
+    return {
+      name: c.name,
+      hub: Boolean(c.hub),
+      x: Number(x.toFixed(1)),
+      y: Number(y.toFixed(1)),
+    };
+  });
+}
+
+const ngCities = projectCities(NG_CITY_DEFS);
+const ciCities = projectCities(CI_CITY_DEFS);
 
 const out = `export const VB_W = ${VB_W};
 export const VB_H = ${VB_H};
@@ -66,8 +91,15 @@ export interface Country {
   d: string;
 }
 
-export const LAGOS = { x: ${lagos[0].toFixed(1)}, y: ${lagos[1].toFixed(1)} };
-export const ABIDJAN = { x: ${abidjan[0].toFixed(1)}, y: ${abidjan[1].toFixed(1)} };
+export interface City {
+  name: string;
+  hub: boolean;
+  x: number;
+  y: number;
+}
+
+export const NG_CITIES: City[] = ${JSON.stringify(ngCities)};
+export const CI_CITIES: City[] = ${JSON.stringify(ciCities)};
 
 export const COUNTRIES: Country[] = ${JSON.stringify(countries)};
 `;
@@ -76,5 +108,5 @@ mkdirSync("src/lib", { recursive: true });
 writeFileSync("src/lib/mapPaths.ts", out);
 
 console.log(
-  `Generated ${countries.length} countries. Lagos=${lagos.map((n) => n.toFixed(1))} Abidjan=${abidjan.map((n) => n.toFixed(1))}`,
+  `Generated ${countries.length} countries, ${ngCities.length} NG cities, ${ciCities.length} CI cities.`,
 );
