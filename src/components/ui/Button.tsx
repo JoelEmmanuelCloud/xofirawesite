@@ -1,25 +1,26 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost" | "gold";
+type Variant = "primary" | "secondary" | "ghost" | "navy" | "gold";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand disabled:pointer-events-none disabled:opacity-50 cursor-pointer";
+  "inline-flex items-center justify-center gap-2 rounded-xl font-semibold whitespace-nowrap transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green disabled:pointer-events-none disabled:opacity-50 cursor-pointer";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-brand text-white shadow-soft hover:bg-brand-hover hover:shadow-glow active:translate-y-px",
+    "bg-green text-white shadow-soft hover:shadow-glow-green hover:brightness-[1.06] active:translate-y-px",
   secondary:
-    "bg-white text-ink ring-1 ring-border-strong hover:bg-surface hover:ring-brand/40 active:translate-y-px",
-  ghost: "text-ink-soft hover:text-brand hover:bg-brand-soft",
+    "bg-card text-ink ring-1 ring-border-strong hover:bg-surface hover:ring-green/40 active:translate-y-px",
+  ghost: "text-ink-soft hover:text-green hover:bg-green-soft",
+  navy: "bg-navy text-white shadow-soft hover:brightness-125 active:translate-y-px",
   gold: "bg-gold text-navy shadow-soft hover:brightness-105 active:translate-y-px",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-4 text-sm",
-  md: "h-11 px-6 text-[15px]",
-  lg: "h-13 px-8 text-base",
+  sm: "h-10 px-4 text-sm",
+  md: "h-11 px-5 text-[15px]",
+  lg: "h-12 px-6 text-[15px]",
 };
 
 interface CommonProps {

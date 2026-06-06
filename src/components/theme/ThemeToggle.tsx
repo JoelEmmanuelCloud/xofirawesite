@@ -45,7 +45,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label="Toggle dark mode"
       aria-pressed={dark}
       className={cn(
-        "relative flex h-10 w-10 items-center justify-center rounded-full text-ink-soft ring-1 ring-border transition hover:text-brand hover:ring-brand/40 cursor-pointer",
+        "relative flex h-10 w-10 items-center justify-center rounded-full text-ink-soft ring-1 ring-border transition hover:text-green hover:ring-green/40 cursor-pointer",
         className,
       )}
     >

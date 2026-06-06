@@ -10,10 +10,10 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "How it works", href: "#how-it-works" },
   { label: "Why Xofira", href: "#features" },
-  { label: "Coverage", href: "#coverage" },
-  { label: "Security", href: "#security" },
+  { label: "Calculator", href: "#calculator" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -54,7 +54,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition hover:bg-brand-soft hover:text-brand"
+                  className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition hover:bg-green-soft hover:text-green"
                 >
                   {link.label}
                 </Link>
@@ -96,7 +96,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-ink-soft transition hover:bg-brand-soft hover:text-brand"
+                  className="rounded-xl px-4 py-3 text-base font-medium text-ink-soft transition hover:bg-green-soft hover:text-green"
                 >
                   {link.label}
                 </Link>
