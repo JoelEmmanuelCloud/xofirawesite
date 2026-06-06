@@ -44,5 +44,8 @@ next-env.d.ts
 /.claude/
 /CLAUDE.md
 
-# preview artifacts
+# preview and reference artifacts
 /preview-*.png
+/_frames/
+*.mkv
+*.mp4
