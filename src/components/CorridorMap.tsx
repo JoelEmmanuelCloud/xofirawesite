@@ -167,8 +167,8 @@ export function CorridorMap({ className }: { className?: string }) {
         )}
       </svg>
 
-      <CityTag country="CI" name="Ivory Coast" count={CI_CITIES.length} point={CI_HUB} side="left" />
-      <CityTag country="NG" name="Nigeria" count={NG_CITIES.length} point={NG_HUB} side="right" />
+      <CityTag country="CI" name="Ivory Coast" point={CI_HUB} side="left" />
+      <CityTag country="NG" name="Nigeria" point={NG_HUB} side="right" />
 
       <div
         className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap"
@@ -191,13 +191,11 @@ export function CorridorMap({ className }: { className?: string }) {
 function CityTag({
   country,
   name,
-  count,
   point,
   side,
 }: {
   country: "NG" | "CI";
   name: string;
-  count: number;
   point: { x: number; y: number };
   side: "left" | "right";
 }) {
@@ -210,10 +208,7 @@ function CityTag({
       style={{ left: `${(point.x / VB_W) * 100}%`, top: `${(point.y / VB_H) * 100}%` }}
     >
       <Flag country={country} className="h-6 w-6" />
-      <div className="leading-tight">
-        <div className="text-xs font-bold text-ink">{name}</div>
-        <div className="text-[10px] text-muted">{count} cities live</div>
-      </div>
+      <span className="text-xs font-bold text-ink">{name}</span>
     </div>
   );
 }
