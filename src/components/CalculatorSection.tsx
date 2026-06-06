@@ -26,18 +26,17 @@ export function CalculatorSection() {
     <section id="calculator" className="relative overflow-hidden py-20 sm:py-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-surface to-background" />
-        <div className="absolute left-1/4 top-1/4 h-80 w-80 animate-blob rounded-full bg-brand/15 blur-3xl" />
-        <div className="absolute right-1/4 bottom-1/4 h-80 w-80 animate-blob rounded-full bg-green/15 blur-3xl [animation-delay:5s]" />
+        <div className="absolute left-1/4 top-1/4 h-80 w-80 animate-blob rounded-full bg-green/15 blur-3xl" />
+        <div className="absolute right-1/4 bottom-1/4 h-80 w-80 animate-blob rounded-full bg-brand/10 blur-3xl [animation-delay:5s]" />
       </div>
 
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <span className="inline-block rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand">
+          <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-green">
             Live calculator
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Know the exact amount{" "}
-            <span className="gradient-text animate-gradient">before you send</span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            Know the exact amount before you send
           </h2>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-ink-soft">
             Type any amount in naira or CFA francs and watch the conversion
@@ -47,7 +46,7 @@ export function CalculatorSection() {
           <ul className="mt-8 space-y-5">
             {POINTS.map((point) => (
               <li key={point.title} className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-soft text-green">
                   <point.icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
                 <div>

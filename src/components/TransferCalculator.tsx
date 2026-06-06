@@ -103,7 +103,7 @@ export function TransferCalculator({ className }: { className?: string }) {
             type="button"
             onClick={swap}
             aria-label="Swap currencies"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-brand text-white shadow-glow ring-4 ring-card transition hover:bg-brand-hover hover:rotate-180 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/40 cursor-pointer"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-green text-white shadow-glow-green ring-4 ring-card transition hover:rotate-180 hover:brightness-110 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green/40 cursor-pointer"
           >
             <ArrowDownUp className="h-5 w-5" strokeWidth={2.25} />
           </button>
@@ -150,7 +150,7 @@ export function TransferCalculator({ className }: { className?: string }) {
 
       <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted">
         <span className="inline-flex items-center gap-1.5">
-          <Clock3 className="h-3.5 w-3.5 text-brand" /> Arrives in minutes
+          <Clock3 className="h-3.5 w-3.5 text-green" /> Arrives in minutes
         </span>
         <span className="inline-flex items-center gap-1.5">
           <ShieldCheck className="h-3.5 w-3.5 text-green" /> Licensed &amp; secured
@@ -187,7 +187,7 @@ function FieldBlock({
     <label
       htmlFor={inputId}
       className={cn(
-        "flex items-center gap-3 rounded-xl border bg-card px-4 py-3 transition focus-within:border-brand focus-within:ring-4 focus-within:ring-brand/10",
+        "flex items-center gap-3 rounded-xl border bg-card px-4 py-3 transition focus-within:border-green focus-within:ring-4 focus-within:ring-green/10",
         invalid ? "border-danger" : "border-border",
       )}
     >

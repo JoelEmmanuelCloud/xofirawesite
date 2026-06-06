@@ -45,8 +45,7 @@ export function Faq() {
             eyebrow="FAQ"
             title={
               <>
-                Questions,{" "}
-                <span className="gradient-text animate-gradient">answered</span>
+                Questions, answered
               </>
             }
             description="Everything you need to know before your first transfer."
@@ -69,7 +68,7 @@ export function Faq() {
                   </span>
                   <Plus
                     className={cn(
-                      "h-5 w-5 shrink-0 text-brand transition-transform duration-300",
+                      "h-5 w-5 shrink-0 text-green transition-transform duration-300",
                       isOpen && "rotate-45",
                     )}
                   />

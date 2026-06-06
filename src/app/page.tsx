@@ -1,12 +1,11 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { TrustBar } from "@/components/TrustBar";
-import { CalculatorSection } from "@/components/CalculatorSection";
-import { HowItWorks } from "@/components/HowItWorks";
 import { Features } from "@/components/Features";
-import { Coverage } from "@/components/Coverage";
-import { Security } from "@/components/Security";
-import { Testimonials } from "@/components/Testimonials";
+import { CalculatorSection } from "@/components/CalculatorSection";
+import { WhyXofira } from "@/components/WhyXofira";
+import { HowItWorks } from "@/components/HowItWorks";
+import { TrustBar } from "@/components/TrustBar";
+import { Pricing } from "@/components/Pricing";
 import { Faq } from "@/components/Faq";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Footer } from "@/components/Footer";
@@ -33,13 +32,12 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <TrustBar />
-        <CalculatorSection />
-        <HowItWorks />
         <Features />
-        <Coverage />
-        <Security />
-        <Testimonials />
+        <CalculatorSection />
+        <WhyXofira />
+        <HowItWorks />
+        <TrustBar />
+        <Pricing />
         <Faq />
         <CtaBanner />
       </main>

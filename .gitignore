@@ -49,3 +49,6 @@ next-env.d.ts
 /_frames/
 *.mkv
 *.mp4
+/image.png
+/ref_*.png
+/rd-*.png
