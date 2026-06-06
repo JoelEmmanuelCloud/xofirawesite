@@ -50,6 +50,8 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `(function(){try{var e=document.documentElement;e.classList.add('js');var s=localStorage.getItem('theme');var m=window.matchMedia('(prefers-color-scheme: dark)').matches;var d=s?s==='dark':m;if(d)e.classList.add('dark');e.style.colorScheme=d?'dark':'light';}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,9 +60,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${plexSans.variable} ${plexMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-background text-ink">
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {children}
       </body>
     </html>
