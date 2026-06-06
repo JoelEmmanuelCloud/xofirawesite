@@ -167,10 +167,12 @@ function Glow({ point, delay }: { point: Point; delay: number }) {
       style={pct(point[0], point[1])}
     >
       <div
-        className="h-9 w-9 rounded-full"
+        className="h-20 w-20 rounded-full"
         style={{
-          background: `radial-gradient(circle, ${ORANGE} 0%, rgba(255,154,60,0.35) 45%, transparent 70%)`,
-          animation: `tx-glow 1.4s ease-out ${delay}ms both`,
+          background:
+            "radial-gradient(circle, rgba(255,160,70,0.55) 0%, rgba(255,154,60,0.22) 38%, transparent 72%)",
+          filter: "blur(6px)",
+          animation: `tx-glow 1.6s ease-out ${delay}ms both`,
         }}
       />
     </div>
