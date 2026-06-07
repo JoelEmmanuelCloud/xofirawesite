@@ -1,7 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/Reveal";
+import { StoreBadges } from "@/components/StoreBadges";
 
 export function CtaBanner() {
   return (
@@ -29,19 +28,7 @@ export function CtaBanner() {
                 </p>
               </div>
 
-              <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-                <Button href="#" size="lg">
-                  Create free account
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button
-                  href="#how-it-works"
-                  size="lg"
-                  className="border-0 bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20"
-                >
-                  Learn more
-                </Button>
-              </div>
+              <StoreBadges className="shrink-0" />
             </div>
           </div>
         </Reveal>
