@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { MobileActionBar } from "@/components/MobileActionBar";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -64,10 +65,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${plexSans.variable} ${plexMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-background text-ink">
+      <body className="min-h-full flex flex-col bg-background text-ink pb-[4.75rem] lg:pb-0">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ScrollToTop />
         {children}
+        <MobileActionBar />
       </body>
     </html>
   );
