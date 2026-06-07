@@ -63,11 +63,11 @@ export function PhoneDemo({
       />
       <div
         aria-hidden
-        className="absolute -right-6 top-10 -z-10 h-40 w-40 animate-blob rounded-full bg-green/40 blur-3xl"
+        className="absolute -right-6 top-10 -z-10 hidden h-40 w-40 animate-blob rounded-full bg-green/40 blur-3xl sm:block"
       />
       <div
         aria-hidden
-        className="absolute -left-8 bottom-12 -z-10 h-40 w-40 animate-blob rounded-full bg-gold/40 blur-3xl [animation-delay:3s]"
+        className="absolute -left-8 bottom-12 -z-10 hidden h-40 w-40 animate-blob rounded-full bg-gold/40 blur-3xl [animation-delay:3s] sm:block"
       />
 
       <div

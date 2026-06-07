@@ -9,8 +9,8 @@ export function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-green-soft/70 via-background to-background" />
         <div className="absolute inset-0 grid-bg mask-fade-y opacity-50" />
-        <div className="absolute -right-20 top-0 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,var(--color-green)_0%,transparent_60%)] opacity-[0.12] blur-2xl" />
-        <div className="absolute -left-32 top-40 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-brand)_0%,transparent_60%)] opacity-[0.10] blur-2xl" />
+        <div className="absolute -right-20 top-0 hidden h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,var(--color-green)_0%,transparent_60%)] opacity-[0.12] blur-2xl sm:block" />
+        <div className="absolute -left-32 top-40 hidden h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,var(--color-brand)_0%,transparent_60%)] opacity-[0.10] blur-2xl sm:block" />
       </div>
 
       <Container className="grid items-center gap-12 pb-16 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pb-24 lg:pt-36">
