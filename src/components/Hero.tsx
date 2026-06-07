@@ -1,4 +1,3 @@
-import { Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { CorridorMap } from "@/components/CorridorMap";
 import { StoreBadges } from "@/components/StoreBadges";
@@ -28,15 +27,9 @@ export function Hero() {
             <StoreBadges className="max-lg:justify-center" />
           </div>
 
-          <div className="mt-5 flex items-center gap-2 text-sm text-ink-soft max-lg:justify-center">
-            <span className="flex">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-gold text-gold" strokeWidth={1.5} />
-              ))}
-            </span>
-            <span className="font-semibold text-ink">4.9/5</span>
-            <span className="text-muted">from 12,000+ customers</span>
-          </div>
+          <p className="mt-6 text-sm font-medium text-ink-soft max-lg:text-center">
+            Cross-border payments built for West Africa
+          </p>
 
         </div>
 
