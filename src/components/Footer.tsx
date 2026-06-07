@@ -60,8 +60,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
       <Container className="py-16">
-        <div className="grid gap-x-10 gap-y-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.4fr_1fr]">
-          <div className="max-w-xs">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.4fr_1fr] lg:gap-x-10 lg:gap-y-12">
+          <div className="col-span-2 max-w-xs lg:col-span-1">
             <Logo href="/" />
             <p className="mt-4 text-sm leading-relaxed text-ink-soft">
               A next-generation fintech platform for seamless money transfers
@@ -87,7 +87,7 @@ export function Footer() {
             </div>
           ))}
 
-          <div id="contacts">
+          <div id="contacts" className="col-span-2 lg:col-span-1">
             <h3 className="text-sm font-bold text-ink">Contacts</h3>
             <ul className="mt-4 space-y-3">
               <li>
@@ -123,7 +123,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h3 className="text-sm font-bold text-ink">Follow us</h3>
             <div className="mt-4 flex gap-2">
               {SOCIALS.map((social) => (
