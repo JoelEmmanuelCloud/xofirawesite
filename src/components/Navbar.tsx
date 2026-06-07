@@ -10,10 +10,8 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "Why Xofira", href: "#features" },
-  { label: "Calculator", href: "#calculator" },
+  { label: "About us", href: "#about" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
 

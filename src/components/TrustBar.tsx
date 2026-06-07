@@ -18,7 +18,7 @@ const STATS: Stat[] = [
 
 export function TrustBar() {
   return (
-    <section className="py-20 sm:py-28">
+    <section id="about" className="py-20 sm:py-28">
       <Container>
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
