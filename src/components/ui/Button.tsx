@@ -48,6 +48,13 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     void _s;
     void _c;
     void _ch;
+    if (href.startsWith("#")) {
+      return (
+        <a href={href} className={classes} {...rest}>
+          {children}
+        </a>
+      );
+    }
     return (
       <Link href={href} className={classes} {...rest}>
         {children}

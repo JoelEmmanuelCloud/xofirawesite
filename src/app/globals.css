@@ -104,6 +104,10 @@ html {
   scroll-behavior: smooth;
 }
 
+:where(section[id], [id]) {
+  scroll-margin-top: 5rem;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-ink);
