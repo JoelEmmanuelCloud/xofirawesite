@@ -34,6 +34,21 @@ export function HowItWorks() {
   const [active, setActive] = useState(0);
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
+  const touchX = useRef<number | null>(null);
+
+  const onTouchStart = (event: React.TouchEvent) => {
+    touchX.current = event.touches[0].clientX;
+  };
+
+  const onTouchEnd = (event: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = event.changedTouches[0].clientX - touchX.current;
+    touchX.current = null;
+    if (Math.abs(dx) < 40) return;
+    setActive((s) =>
+      dx < 0 ? Math.min(s + 1, STEPS.length - 1) : Math.max(s - 1, 0),
+    );
+  };
 
   useEffect(() => {
     const node = ref.current;
@@ -70,8 +85,8 @@ export function HowItWorks() {
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-green/25 blur-3xl" />
-        <div className="absolute -bottom-20 left-10 h-64 w-64 rounded-full bg-brand/20 blur-3xl" />
+        <div className="absolute -right-16 -top-16 hidden h-64 w-64 rounded-full bg-green/25 blur-3xl sm:block" />
+        <div className="absolute -bottom-20 left-10 hidden h-64 w-64 rounded-full bg-brand/20 blur-3xl sm:block" />
       </div>
       <Container className="relative">
         <div
@@ -147,8 +162,15 @@ export function HowItWorks() {
           </div>
 
           <Reveal delay={120}>
-            <div className="flex justify-center lg:justify-end">
+            <div
+              className="flex flex-col items-center lg:items-end"
+              onTouchStart={onTouchStart}
+              onTouchEnd={onTouchEnd}
+            >
               <Phone active={active} />
+              <p className="mt-4 text-xs text-white/40 lg:hidden">
+                Swipe or tap a step to explore
+              </p>
             </div>
           </Reveal>
         </div>
