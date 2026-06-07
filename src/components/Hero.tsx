@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { CorridorMap } from "@/components/CorridorMap";
-import { EmailCapture } from "@/components/EmailCapture";
+import { StoreBadges } from "@/components/StoreBadges";
 import { Partners } from "@/components/Partners";
 import { TypewriterHeadline } from "@/components/TypewriterHeadline";
 
@@ -25,8 +25,8 @@ export function Hero() {
             Fast. Secure. Global.
           </p>
 
-          <div className="mt-8 max-lg:mx-auto max-lg:max-w-md">
-            <EmailCapture />
+          <div className="mt-8">
+            <StoreBadges className="max-lg:justify-center" />
           </div>
 
           <div className="mt-5 flex items-center gap-2 text-sm text-ink-soft max-lg:justify-center">
