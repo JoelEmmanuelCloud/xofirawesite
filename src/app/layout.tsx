@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -65,6 +66,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-ink">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ScrollToTop />
         {children}
       </body>
     </html>

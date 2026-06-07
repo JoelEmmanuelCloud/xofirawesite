@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -31,9 +34,19 @@ function Lockup({ light }: { light?: boolean }) {
 }
 
 export function Logo({ onDark = false, className, href = "/" }: LogoProps) {
+  const pathname = usePathname();
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href === pathname) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <Link
       href={href}
+      onClick={handleClick}
       aria-label="Xofira home"
       className={cn(
         "inline-flex items-center rounded-lg outline-none transition focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2",
