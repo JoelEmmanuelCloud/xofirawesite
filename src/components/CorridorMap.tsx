@@ -81,7 +81,12 @@ export function CorridorMap({ className }: { className?: string }) {
   }, [animate]);
 
   return (
-    <div className={cn("relative mx-auto aspect-[480/540] w-full max-w-xl", className)}>
+    <div
+      className={cn(
+        "relative mx-auto aspect-[480/540] w-full max-w-[17rem] sm:max-w-xl",
+        className,
+      )}
+    >
       <div
         aria-hidden
         className="absolute left-[26%] top-[42%] -z-10 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,var(--color-green)_0%,transparent_65%)] opacity-20 blur-2xl"
@@ -139,14 +144,14 @@ export function CorridorMap({ className }: { className?: string }) {
             style={pct(t.from[0], t.from[1] - 28)}
           >
             <div
-              className="flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-semibold text-ink shadow-lift"
+              className="flex items-center gap-1 rounded-full border border-border bg-card px-2 py-0.5 text-[9px] font-semibold text-ink shadow-lift sm:gap-1.5 sm:px-2.5 sm:py-1 sm:text-[11px]"
               style={{ animation: "tx-card 2.4s ease-out both" }}
             >
               <span className="tabular">{t.ci}</span>
               {t.ngToCi ? (
-                <ArrowLeft className="h-3 w-3" style={{ color: ORANGE }} />
+                <ArrowLeft className="h-2.5 w-2.5 sm:h-3 sm:w-3" style={{ color: ORANGE }} />
               ) : (
-                <ArrowRight className="h-3 w-3" style={{ color: ORANGE }} />
+                <ArrowRight className="h-2.5 w-2.5 sm:h-3 sm:w-3" style={{ color: ORANGE }} />
               )}
               <span className="tabular">{t.ng}</span>
             </div>
@@ -167,7 +172,7 @@ function Glow({ point, delay }: { point: Point; delay: number }) {
       style={pct(point[0], point[1])}
     >
       <div
-        className="h-20 w-20 rounded-full"
+        className="h-12 w-12 rounded-full sm:h-20 sm:w-20"
         style={{
           background:
             "radial-gradient(circle, rgba(255,160,70,0.55) 0%, rgba(255,154,60,0.22) 38%, transparent 72%)",
@@ -193,13 +198,13 @@ function CityTag({
   return (
     <div
       className={cn(
-        "absolute flex translate-y-3 items-center gap-2 rounded-xl border border-border bg-card px-2.5 py-1.5 shadow-soft",
+        "absolute flex translate-y-3 items-center gap-1.5 rounded-lg border border-border bg-card px-2 py-1 shadow-soft sm:gap-2 sm:rounded-xl sm:px-2.5 sm:py-1.5",
         side === "left" ? "-translate-x-[88%]" : "-translate-x-[12%]",
       )}
       style={{ left: `${(point.x / VB_W) * 100}%`, top: `${(point.y / VB_H) * 100}%` }}
     >
-      <Flag country={country} className="h-6 w-6" />
-      <span className="text-xs font-bold text-ink">{name}</span>
+      <Flag country={country} className="h-4 w-4 sm:h-6 sm:w-6" />
+      <span className="text-[10px] font-bold text-ink sm:text-xs">{name}</span>
     </div>
   );
 }

@@ -64,7 +64,9 @@ export function AppShowcase() {
 
         <Reveal delay={120}>
           <div className="flex justify-center lg:justify-end">
-            <PhoneDemo className="max-w-[300px]" />
+            <div className="origin-top scale-[0.78] -mb-28 sm:mb-0 sm:scale-100">
+              <PhoneDemo className="max-w-[300px]" />
+            </div>
           </div>
         </Reveal>
       </Container>
