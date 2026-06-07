@@ -96,56 +96,76 @@ export function Navbar() {
               </Button>
             </div>
 
-            <div className="flex items-center gap-2 lg:hidden">
-              <ThemeToggle />
+            <div className="flex items-center lg:hidden">
               <button
                 type="button"
-                aria-label={open ? "Close menu" : "Open menu"}
+                aria-label="Open menu"
                 aria-expanded={open}
-                onClick={() => setOpen((v) => !v)}
+                onClick={() => setOpen(true)}
                 className="flex h-10 w-10 items-center justify-center rounded-full text-ink ring-1 ring-border transition hover:bg-surface cursor-pointer"
               >
-                {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                <Menu className="h-6 w-6" />
               </button>
             </div>
           </nav>
         </Container>
       </div>
 
-      {open ? (
-        <div className="bg-background border-b border-border lg:hidden">
-          <Container className="py-4">
-            <div className="flex flex-col gap-1">
-              {NAV_LINKS.map((link) => {
-                const isActive = activeId === link.href.slice(1);
-                return (
-                  <a
-                    key={link.href}
-                    href={hrefFor(link.href)}
-                    onClick={() => setOpen(false)}
-                    aria-current={isActive ? "page" : undefined}
-                    className={cn(
-                      "rounded-xl px-4 py-3 text-base font-medium transition hover:bg-green-soft hover:text-green",
-                      isActive ? "bg-green-soft text-green" : "text-ink-soft",
-                    )}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
-            </div>
-            <div className="mt-4 flex flex-col gap-2">
-              <Button
-                href={hrefFor("#get-started")}
-                size="md"
-                onClick={() => setOpen(false)}
-              >
-                Download app
-              </Button>
-            </div>
-          </Container>
-        </div>
-      ) : null}
+      <div
+        aria-hidden={!open}
+        className={cn(
+          "fixed inset-0 z-50 flex flex-col bg-background transition-transform duration-300 ease-out lg:hidden",
+          open ? "translate-x-0" : "pointer-events-none translate-x-full",
+        )}
+      >
+        <Container>
+          <div className="flex h-16 items-center justify-between">
+            <Logo onClick={() => setOpen(false)} />
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+              className="flex h-10 w-10 items-center justify-center rounded-full text-ink ring-1 ring-border transition hover:bg-surface cursor-pointer"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+        </Container>
+
+        <Container className="flex flex-1 flex-col">
+          <nav className="mt-6 flex flex-col gap-1">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeId === link.href.slice(1);
+              return (
+                <a
+                  key={link.href}
+                  href={hrefFor(link.href)}
+                  onClick={() => setOpen(false)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "rounded-xl px-4 py-3.5 text-lg font-semibold transition active:bg-green-soft",
+                    isActive ? "text-green" : "text-ink",
+                  )}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          <div className="mt-auto space-y-3 py-6">
+            <ThemeToggle variant="row" />
+            <Button
+              href={hrefFor("#get-started")}
+              size="lg"
+              className="w-full"
+              onClick={() => setOpen(false)}
+            >
+              Download app
+            </Button>
+          </div>
+        </Container>
+      </div>
     </header>
   );
 }

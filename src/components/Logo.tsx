@@ -9,6 +9,7 @@ interface LogoProps {
   onDark?: boolean;
   className?: string;
   href?: string;
+  onClick?: () => void;
 }
 
 function Lockup({ light }: { light?: boolean }) {
@@ -33,7 +34,12 @@ function Lockup({ light }: { light?: boolean }) {
   );
 }
 
-export function Logo({ onDark = false, className, href = "/" }: LogoProps) {
+export function Logo({
+  onDark = false,
+  className,
+  href = "/",
+  onClick,
+}: LogoProps) {
   const pathname = usePathname();
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -41,6 +47,7 @@ export function Logo({ onDark = false, className, href = "/" }: LogoProps) {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+    onClick?.();
   };
 
   return (

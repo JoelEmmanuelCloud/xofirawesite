@@ -17,7 +17,17 @@ function isDark() {
   return document.documentElement.classList.contains("dark");
 }
 
-export function ThemeToggle({ className }: { className?: string }) {
+interface ThemeToggleProps {
+  className?: string;
+  variant?: "icon" | "row";
+  label?: string;
+}
+
+export function ThemeToggle({
+  className,
+  variant = "icon",
+  label = "Appearance",
+}: ThemeToggleProps) {
   const dark = useSyncExternalStore(subscribe, isDark, () => false);
   const mounted = useSyncExternalStore(
     subscribe,
@@ -38,17 +48,8 @@ export function ThemeToggle({ className }: { className?: string }) {
     window.dispatchEvent(new Event("themechange"));
   }
 
-  return (
-    <button
-      type="button"
-      onClick={toggle}
-      aria-label="Toggle dark mode"
-      aria-pressed={dark}
-      className={cn(
-        "relative flex h-10 w-10 items-center justify-center rounded-full text-ink-soft ring-1 ring-border transition hover:text-green hover:ring-green/40 cursor-pointer",
-        className,
-      )}
-    >
+  const glyphs = (
+    <>
       <Sun
         className={cn(
           "absolute h-5 w-5 transition-all duration-300",
@@ -65,6 +66,41 @@ export function ThemeToggle({ className }: { className?: string }) {
             : "-rotate-90 scale-0 opacity-0",
         )}
       />
+    </>
+  );
+
+  if (variant === "row") {
+    return (
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label="Toggle dark mode"
+        aria-pressed={dark}
+        className={cn(
+          "flex w-full items-center justify-between rounded-xl border border-border px-4 py-3 text-ink-soft transition active:bg-surface cursor-pointer",
+          className,
+        )}
+      >
+        <span className="text-sm font-medium">{label}</span>
+        <span className="relative flex h-6 w-6 items-center justify-center text-ink">
+          {glyphs}
+        </span>
+      </button>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label="Toggle dark mode"
+      aria-pressed={dark}
+      className={cn(
+        "relative flex h-10 w-10 items-center justify-center rounded-full text-ink-soft ring-1 ring-border transition hover:text-green hover:ring-green/40 cursor-pointer",
+        className,
+      )}
+    >
+      {glyphs}
     </button>
   );
 }
