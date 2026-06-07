@@ -61,11 +61,8 @@ export function Navbar() {
 
             <div className="hidden items-center gap-2 lg:flex">
               <ThemeToggle />
-              <Button href="#" variant="ghost" size="sm">
-                Log in
-              </Button>
               <Button href="#get-started" size="sm">
-                Get started
+                Download app
               </Button>
             </div>
 
@@ -101,15 +98,12 @@ export function Navbar() {
               ))}
             </div>
             <div className="mt-4 flex flex-col gap-2">
-              <Button href="#" variant="secondary" size="md">
-                Log in
-              </Button>
               <Button
                 href="#get-started"
                 size="md"
                 onClick={() => setOpen(false)}
               >
-                Get started
+                Download app
               </Button>
             </div>
           </Container>
