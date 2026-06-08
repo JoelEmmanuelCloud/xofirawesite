@@ -1,7 +1,7 @@
-import { Globe2, BadgeCheck, HeartHandshake, ArrowLeftRight } from "lucide-react";
+import { Globe2, BadgeCheck, HeartHandshake } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
-import { Flag } from "@/components/Flag";
+import { CorridorHub } from "@/components/CorridorHub";
 
 const VALUES = [
   {
@@ -58,19 +58,7 @@ export function AboutUs() {
                 The corridor we serve
               </p>
 
-              <div className="mt-7 flex items-center gap-4">
-                <Flag country="NG" className="h-12 w-12" />
-                <span className="h-px flex-1 bg-gradient-to-r from-green via-white/25 to-green" />
-                <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-green text-white">
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 animate-pulse-ring rounded-full bg-green/40"
-                  />
-                  <ArrowLeftRight className="relative h-5 w-5" />
-                </span>
-                <span className="h-px flex-1 bg-gradient-to-r from-green via-white/25 to-green" />
-                <Flag country="CI" className="h-12 w-12" />
-              </div>
+              <CorridorHub />
 
               <p className="mt-7 text-xl font-bold leading-snug">
                 Nigeria and Ivory Coast, linked in real time.
