@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Landmark, Wallet, Banknote } from "lucide-react";
 import { Flag } from "@/components/Flag";
+import { TranoxMark } from "@/components/TranoxMark";
 
 const PAYOUTS = [
   { icon: Landmark, label: "Bank", y: 30 },
@@ -72,13 +72,7 @@ export function CorridorHub() {
             aria-hidden
             className="absolute inset-0 animate-pulse-ring rounded-full bg-green/40"
           />
-          <Image
-            src="/tranox-mark.png"
-            alt="Tranox"
-            width={228}
-            height={228}
-            className="relative h-7 w-7"
-          />
+          <TranoxMark className="relative h-7 w-7" />
         </span>
       </Node>
 

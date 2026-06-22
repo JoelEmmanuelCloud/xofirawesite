@@ -1,5 +1,3 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const alt =
@@ -7,12 +5,7 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function Image() {
-  const markData = await readFile(
-    join(process.cwd(), "public", "tranox-mark.png"),
-  );
-  const markSrc = `data:image/png;base64,${markData.toString("base64")}`;
-
+export default function Image() {
   return new ImageResponse(
     (
       <div
@@ -29,7 +22,11 @@ export default async function Image() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
-          <img src={markSrc} width={60} height={60} alt="" />
+          <svg width="60" height="60" viewBox="0 0 40 40" style={{ display: "flex" }}>
+            <rect width="40" height="40" rx="10" fill="#1fb35a" />
+            <path d="M 8 14 L 27 14 M 21 8 L 27 14 L 21 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 32 26 L 13 26 M 19 20 L 13 26 L 19 32" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
           <div style={{ display: "flex", fontSize: 38, fontWeight: 700 }}>
             Tranox
           </div>

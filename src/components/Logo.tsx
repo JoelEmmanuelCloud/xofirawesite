@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { TranoxMark } from "@/components/TranoxMark";
 
 interface LogoProps {
   onDark?: boolean;
@@ -15,13 +15,7 @@ interface LogoProps {
 function Lockup({ light }: { light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
-      <Image
-        src="/tranox-mark.png"
-        alt=""
-        width={228}
-        height={228}
-        className="h-9 w-9"
-      />
+      <TranoxMark className="h-9 w-9" />
       <span
         className={cn(
           "text-2xl font-bold tracking-tight",
@@ -64,14 +58,9 @@ export function Logo({
         <Lockup light />
       ) : (
         <>
-          <Image
-            src="/tranox-logo.png"
-            alt="Tranox"
-            width={650}
-            height={188}
-            priority
-            className="h-9 w-auto dark:hidden"
-          />
+          <span className="dark:hidden">
+            <Lockup />
+          </span>
           <span className="hidden dark:flex">
             <Lockup light />
           </span>
