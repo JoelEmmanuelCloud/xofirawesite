@@ -16,7 +16,7 @@ function Lockup({ light }: { light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <Image
-        src="/xofira-mark.png"
+        src="/tranox-mark.png"
         alt=""
         width={228}
         height={228}
@@ -28,7 +28,7 @@ function Lockup({ light }: { light?: boolean }) {
           light ? "text-white" : "text-brand-ink",
         )}
       >
-        Xofira
+        Tranox
       </span>
     </span>
   );
@@ -54,7 +54,7 @@ export function Logo({
     <Link
       href={href}
       onClick={handleClick}
-      aria-label="Xofira home"
+      aria-label="Tranox home"
       className={cn(
         "inline-flex items-center rounded-lg outline-none transition focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2",
         className,
@@ -65,8 +65,8 @@ export function Logo({
       ) : (
         <>
           <Image
-            src="/xofira-logo.png"
-            alt="Xofira"
+            src="/tranox-logo.png"
+            alt="Tranox"
             width={650}
             height={188}
             priority

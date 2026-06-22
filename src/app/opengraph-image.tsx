@@ -3,13 +3,13 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Xofira — Instant money transfers between Nigeria and Ivory Coast";
+  "Tranox — Instant money transfers between Nigeria and Ivory Coast";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
   const markData = await readFile(
-    join(process.cwd(), "public", "xofira-mark.png"),
+    join(process.cwd(), "public", "tranox-mark.png"),
   );
   const markSrc = `data:image/png;base64,${markData.toString("base64")}`;
 
@@ -31,7 +31,7 @@ export default async function Image() {
         <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
           <img src={markSrc} width={60} height={60} alt="" />
           <div style={{ display: "flex", fontSize: 38, fontWeight: 700 }}>
-            Xofira
+            Tranox
           </div>
         </div>
 

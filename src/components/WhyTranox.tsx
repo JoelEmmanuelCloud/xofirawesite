@@ -26,7 +26,7 @@ const BENEFITS = [
   },
 ];
 
-export function WhyXofira() {
+export function WhyTranox() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
@@ -36,7 +36,7 @@ export function WhyXofira() {
               Why us
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Why senders prefer Xofira
+              Why senders prefer Tranox
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-ink-soft">
               Speed, certainty, and a rate you can trust, every time you send

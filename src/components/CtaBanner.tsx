@@ -24,7 +24,7 @@ export function CtaBanner() {
                 </h2>
                 <p className="mt-3 text-[15px] leading-relaxed text-white/65">
                   Join thousands moving money between Nigeria and Ivory Coast
-                  with Xofira. No hidden fees, no waiting.
+                  with Tranox. No hidden fees, no waiting.
                 </p>
               </div>
 

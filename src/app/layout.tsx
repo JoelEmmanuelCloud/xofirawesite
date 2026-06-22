@@ -18,13 +18,13 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://xofira.com";
+const siteUrl = "https://tranox.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Xofira — Instant money transfers between Nigeria and Ivory Coast",
-    template: "%s · Xofira",
+    default: "Tranox — Instant money transfers between Nigeria and Ivory Coast",
+    template: "%s · Tranox",
   },
   description:
     "Send money both ways between Nigeria (NGN) and Ivory Coast (XOF) in minutes. Transparent rates, low fees, bank-grade security. Fast. Secure. Global.",
@@ -34,19 +34,19 @@ export const metadata: Metadata = {
     "XOF to NGN",
     "send money to Ivory Coast",
     "cross-border payments Africa",
-    "Xofira",
+    "Tranox",
   ],
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Xofira — Cross-border transfers between Nigeria and Ivory Coast",
+    title: "Tranox — Cross-border transfers between Nigeria and Ivory Coast",
     description:
       "Bidirectional NGN ↔ XOF transfers in minutes. Transparent rates, low fees, bank-grade security.",
-    siteName: "Xofira",
+    siteName: "Tranox",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xofira — NGN ↔ XOF cross-border transfers",
+    title: "Tranox — NGN ↔ XOF cross-border transfers",
     description:
       "Send money both ways between Nigeria and Ivory Coast in minutes. Fast. Secure. Global.",
   },

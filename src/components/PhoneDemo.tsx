@@ -168,14 +168,14 @@ function PhoneBack() {
 
         <div className="flex h-full flex-col items-center justify-center gap-5">
           <Image
-            src="/xofira-mark.png"
+            src="/tranox-mark.png"
             alt=""
             width={228}
             height={228}
             className="h-24 w-24 opacity-95 drop-shadow-[0_8px_24px_rgba(47,125,246,0.5)]"
           />
           <span className="text-2xl font-bold tracking-tight text-white/90">
-            Xofira
+            Tranox
           </span>
         </div>
 

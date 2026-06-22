@@ -73,8 +73,8 @@ export function CorridorHub() {
             className="absolute inset-0 animate-pulse-ring rounded-full bg-green/40"
           />
           <Image
-            src="/xofira-mark.png"
-            alt="Xofira"
+            src="/tranox-mark.png"
+            alt="Tranox"
             width={228}
             height={228}
             className="relative h-7 w-7"
