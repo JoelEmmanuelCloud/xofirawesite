@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { ArrowRight, Check, ShieldCheck, Sparkles, Clock3 } from "lucide-react";
 import { Flag } from "@/components/Flag";
 import { cn } from "@/lib/utils";
+import { TranoxMark } from "@/components/TranoxMark";
 
 const STEP_COUNT = 4;
 const STEP_MS = 2600;
@@ -167,15 +167,9 @@ function PhoneBack() {
         <div className="absolute right-7 top-9 h-3 w-3 rounded-full bg-white/10 ring-1 ring-white/15" />
 
         <div className="flex h-full flex-col items-center justify-center gap-5">
-          <Image
-            src="/xofira-mark.png"
-            alt=""
-            width={228}
-            height={228}
-            className="h-24 w-24 opacity-95 drop-shadow-[0_8px_24px_rgba(47,125,246,0.5)]"
-          />
+          <TranoxMark className="h-24 w-24 opacity-95 drop-shadow-[0_8px_24px_rgba(47,125,246,0.5)]" />
           <span className="text-2xl font-bold tracking-tight text-white/90">
-            Xofira
+            Tranox
           </span>
         </div>
 

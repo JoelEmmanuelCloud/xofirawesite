@@ -35,7 +35,7 @@ export function AboutUs() {
                 Connecting West Africa, one transfer at a time
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-                Xofira was born from a simple frustration: sending money between
+                Tranox was born from a simple frustration: sending money between
                 Nigeria and Ivory Coast was slow, expensive, and opaque. We set
                 out to fix it with a single, focused product.
               </p>

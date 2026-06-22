@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const FAQS = [
   {
     q: "Which directions can I send money?",
-    a: "Xofira supports both directions of the corridor: send Nigerian Naira (NGN) to recipients in Ivory Coast as West African CFA francs (XOF), and send XOF from Ivory Coast to recipients in Nigeria as NGN.",
+    a: "Tranox supports both directions of the corridor: send Nigerian Naira (NGN) to recipients in Ivory Coast as West African CFA francs (XOF), and send XOF from Ivory Coast to recipients in Nigeria as NGN.",
   },
   {
     q: "How fast do transfers arrive?",
@@ -24,8 +24,8 @@ const FAQS = [
     a: "You can fund transfers by bank transfer, debit card, or mobile money, depending on your country. Recipients can be paid into a bank account, a mobile wallet, or via cash pickup.",
   },
   {
-    q: "Is Xofira secure and regulated?",
-    a: "Yes. Xofira operates under regulatory oversight in each market with full KYC and AML programs. Funds are safeguarded with regulated partners, and every transaction is encrypted and monitored for fraud.",
+    q: "Is Tranox secure and regulated?",
+    a: "Yes. Tranox operates under regulatory oversight in each market with full KYC and AML programs. Funds are safeguarded with regulated partners, and every transaction is encrypted and monitored for fraud.",
   },
   {
     q: "Are there limits on how much I can send?",

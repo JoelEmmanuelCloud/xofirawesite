@@ -4,14 +4,14 @@ import { LegalPage, type LegalSection } from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Compliance",
   description:
-    "How Xofira meets its regulatory, anti-money-laundering, and consumer-protection obligations across the Nigeria–Ivory Coast corridor.",
+    "How Tranox meets its regulatory, anti-money-laundering, and consumer-protection obligations across the Nigeria–Ivory Coast corridor.",
 };
 
 const SECTIONS: LegalSection[] = [
   {
     heading: "Regulatory framework",
     blocks: [
-      "Xofira operates under regulatory oversight in each market it serves and works only with licensed banking and payout partners to settle funds. We design our products to comply with the laws and supervisory requirements that apply to cross-border money transfers between Nigeria and Ivory Coast, including:",
+      "Tranox operates under regulatory oversight in each market it serves and works only with licensed banking and payout partners to settle funds. We design our products to comply with the laws and supervisory requirements that apply to cross-border money transfers between Nigeria and Ivory Coast, including:",
       {
         list: [
           "Central Bank of Nigeria (CBN) regulations, including Payment Service Provider guidelines.",
@@ -69,7 +69,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Reporting concerns",
     blocks: [
-      "If you suspect fraud, financial crime, or any misuse of our service, contact our compliance team at support@xofira.com. We take all reports seriously and investigate promptly.",
+      "If you suspect fraud, financial crime, or any misuse of our service, contact our compliance team at support@tranox.com. We take all reports seriously and investigate promptly.",
     ],
   },
 ];
@@ -79,7 +79,7 @@ export default function CompliancePage() {
     <LegalPage
       title="Compliance"
       lastUpdated="June 7, 2026"
-      intro="Trust is the foundation of cross-border payments. This page explains how Xofira meets its regulatory, anti-money-laundering, and consumer-protection obligations across the Nigeria–Ivory Coast corridor."
+      intro="Trust is the foundation of cross-border payments. This page explains how Tranox meets its regulatory, anti-money-laundering, and consumer-protection obligations across the Nigeria–Ivory Coast corridor."
       sections={SECTIONS}
     />
   );

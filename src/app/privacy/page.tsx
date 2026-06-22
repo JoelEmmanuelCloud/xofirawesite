@@ -4,7 +4,7 @@ import { LegalPage, type LegalSection } from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Xofira collects, uses, shares, and protects your personal and financial information.",
+    "How Tranox collects, uses, shares, and protects your personal and financial information.",
 };
 
 const SECTIONS: LegalSection[] = [
@@ -93,7 +93,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Contact us",
     blocks: [
-      "If you have questions about this policy or how we handle your information, contact our team at support@xofira.com.",
+      "If you have questions about this policy or how we handle your information, contact our team at support@tranox.com.",
     ],
   },
 ];
@@ -103,7 +103,7 @@ export default function PrivacyPage() {
     <LegalPage
       title="Privacy Policy"
       lastUpdated="June 7, 2026"
-      intro="This Privacy Policy explains what information Xofira collects, how we use and share it, and the choices and rights you have. It applies to your use of the Xofira app, website, and related services, and we handle your information in line with the Nigeria Data Protection Act 2023 (NDPA) and directives issued by the Nigeria Data Protection Commission (NDPC)."
+      intro="This Privacy Policy explains what information Tranox collects, how we use and share it, and the choices and rights you have. It applies to your use of the Tranox app, website, and related services, and we handle your information in line with the Nigeria Data Protection Act 2023 (NDPA) and directives issued by the Nigeria Data Protection Commission (NDPC)."
       sections={SECTIONS}
     />
   );

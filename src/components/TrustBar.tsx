@@ -33,7 +33,7 @@ export function TrustBar() {
               Making cross-border money simple
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-              We are building Xofira to move money between Nigeria and Ivory
+              We are building Tranox to move money between Nigeria and Ivory
               Coast quickly, transparently, and safely, for everyone.
             </p>
           </div>

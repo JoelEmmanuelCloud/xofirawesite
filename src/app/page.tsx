@@ -3,7 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { AppShowcase } from "@/components/AppShowcase";
 import { AboutUs } from "@/components/AboutUs";
-import { WhyXofira } from "@/components/WhyXofira";
+import { WhyTranox } from "@/components/WhyTranox";
 import { HowItWorks } from "@/components/HowItWorks";
 import { TrustBar } from "@/components/TrustBar";
 import { Faq } from "@/components/Faq";
@@ -13,10 +13,10 @@ import { Footer } from "@/components/Footer";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "FinancialService",
-  name: "Xofira",
+  name: "Tranox",
   description:
     "Bidirectional money transfers between Nigeria (NGN) and Ivory Coast (XOF). Fast, secure, transparent cross-border payments.",
-  url: "https://xofira.com",
+  url: "https://tranox.com",
   areaServed: ["Nigeria", "Ivory Coast"],
   currenciesAccepted: "NGN, XOF",
   slogan: "Fast. Secure. Global.",
@@ -35,7 +35,7 @@ export default function HomePage() {
         <Features />
         <AboutUs />
         <AppShowcase />
-        <WhyXofira />
+        <WhyTranox />
         <HowItWorks />
         <TrustBar />
         <Faq />

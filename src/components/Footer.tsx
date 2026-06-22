@@ -27,7 +27,7 @@ const COLUMNS = [
     title: "Product",
     links: [
       { label: "How it works", href: "#how-it-works" },
-      { label: "Why Xofira", href: "#features" },
+      { label: "Why Tranox", href: "#features" },
     ],
   },
   {
@@ -92,11 +92,11 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="mailto:support@xofira.com"
+                  href="mailto:support@tranox.com"
                   className="flex items-center gap-2.5 text-sm text-ink-soft transition hover:text-green"
                 >
                   <Mail className="h-4 w-4 shrink-0 text-green" strokeWidth={1.75} />
-                  support@xofira.com
+                  support@tranox.com
                 </a>
               </li>
               <li>
@@ -141,9 +141,9 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-sm text-muted sm:flex-row sm:items-center">
-          <p>&copy; {year} Xofira. All rights reserved.</p>
+          <p>&copy; {year} Tranox. All rights reserved.</p>
           <p className="max-w-xl text-xs leading-relaxed">
-            Exchange rates displayed are indicative. Xofira provides regulated
+            Exchange rates displayed are indicative. Tranox provides regulated
             money-transfer services; terms and limits apply.
           </p>
         </div>

@@ -18,7 +18,7 @@ export function Hero() {
           <TypewriterHeadline className="text-[2.7rem] font-bold leading-[1.03] tracking-tight text-ink sm:text-[3.4rem]" />
 
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft max-lg:mx-auto">
-            Xofira moves money both ways between Nigeria (NGN) and Ivory Coast
+            Tranox moves money both ways between Nigeria (NGN) and Ivory Coast
             (XOF) in minutes. Transparent rates, low fees, bank-grade security.
             Fast. Secure. Global.
           </p>

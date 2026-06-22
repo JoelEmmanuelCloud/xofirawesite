@@ -4,20 +4,20 @@ import { LegalPage, type LegalSection } from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms that govern your use of Xofira's cross-border money-transfer services.",
+    "The terms that govern your use of Tranox's cross-border money-transfer services.",
 };
 
 const SECTIONS: LegalSection[] = [
   {
     heading: "Acceptance of these terms",
     blocks: [
-      "By creating an account or using Xofira, you agree to these Terms of Service. If you do not agree, you should not use the service. These terms form a binding agreement between you and Xofira.",
+      "By creating an account or using Tranox, you agree to these Terms of Service. If you do not agree, you should not use the service. These terms form a binding agreement between you and Tranox.",
     ],
   },
   {
     heading: "Eligibility",
     blocks: [
-      "You must be at least 18 years old and legally able to enter into a contract to use Xofira. You agree to provide accurate, current, and complete information and to keep it up to date.",
+      "You must be at least 18 years old and legally able to enter into a contract to use Tranox. You agree to provide accurate, current, and complete information and to keep it up to date.",
     ],
   },
   {
@@ -29,7 +29,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Transfers and payouts",
     blocks: [
-      "Xofira facilitates transfers between Nigeria (NGN) and Ivory Coast (XOF) in both directions. You are responsible for entering correct recipient and payout details. Transfers cannot be processed where details are inaccurate or where a transaction would breach applicable law.",
+      "Tranox facilitates transfers between Nigeria (NGN) and Ivory Coast (XOF) in both directions. You are responsible for entering correct recipient and payout details. Transfers cannot be processed where details are inaccurate or where a transaction would breach applicable law.",
     ],
   },
   {
@@ -47,7 +47,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Prohibited use",
     blocks: [
-      "You agree not to use Xofira to:",
+      "You agree not to use Tranox to:",
       {
         list: [
           "Engage in money laundering, terrorist financing, fraud, or any unlawful activity.",
@@ -73,7 +73,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Limitation of liability",
     blocks: [
-      "To the maximum extent permitted by law, Xofira is not liable for indirect, incidental, or consequential losses arising from your use of the service. Nothing in these terms excludes liability that cannot be excluded under applicable law.",
+      "To the maximum extent permitted by law, Tranox is not liable for indirect, incidental, or consequential losses arising from your use of the service. Nothing in these terms excludes liability that cannot be excluded under applicable law.",
     ],
   },
   {
@@ -85,7 +85,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Contact us",
     blocks: [
-      "If you have questions about these terms, contact our team at support@xofira.com.",
+      "If you have questions about these terms, contact our team at support@tranox.com.",
     ],
   },
 ];
@@ -95,7 +95,7 @@ export default function TermsPage() {
     <LegalPage
       title="Terms of Service"
       lastUpdated="June 7, 2026"
-      intro="These Terms of Service govern your access to and use of Xofira's cross-border money-transfer services. Please read them carefully before using the app or website."
+      intro="These Terms of Service govern your access to and use of Tranox's cross-border money-transfer services. Please read them carefully before using the app or website."
       sections={SECTIONS}
     />
   );
